@@ -33,9 +33,7 @@ const GalleryPage = () => {
             </svg>
 
             <CldUploadButton
-              onUpload={(result: UploadResult) => {
-               
-              }}
+              onUpload={(result) => {}}
               uploadPreset="neqtby3a"
             />
           </div>
