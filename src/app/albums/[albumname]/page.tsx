@@ -1,23 +1,19 @@
-
-import GalleryGrid from "@/components/Shared/gallery-grid";
+import { SearchResult } from "@/app/gallery/page";
+import AlbumGrid from "@/components/Shared/album-grid";
+import ForcedRefresh from "@/components/Shared/forced-refresh";
 import ImageGrid from "@/components/Shared/image-grid";
 import UploadButton from "@/components/Shared/upload-btn";
 import cloudinary from "cloudinary";
 
-export type UploadResult = {
-  info: {
-    public_id: string;
+const GalleryPage = async ({
+  params: { albumname },
+}: {
+  params: {
+    albumname: string;
   };
-  event: "success";
-};
-export type SearchResult = {
-  public_id: string;
-  tags: string[];
-};
-
-const GalleryPage = async () => {
+}) => {
   const results = (await cloudinary.v2.search
-    .expression("resource_type:image")
+    .expression(`resource_type:image AND folder=${albumname}`)
     .sort_by("created_at", "desc")
     .with_field("tags")
     .max_results(30)
@@ -25,12 +21,13 @@ const GalleryPage = async () => {
 
   return (
     <section>
+      <ForcedRefresh/>
       <div className="flex flex-col gap-8">
         <div className="flex justify-between">
-          <h1 className="text-4xl font-bold">Gallery</h1>
+          <h1 className="text-4xl font-bold capitalize">Album {albumname} </h1>
           <UploadButton />
         </div>
-        <GalleryGrid images={results.resources} />
+        <AlbumGrid images={results.resources} />
       </div>
     </section>
   );
