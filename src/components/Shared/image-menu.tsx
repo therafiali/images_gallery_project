@@ -31,8 +31,7 @@ export function ImageMenu({ image }: { image: SearchResult }) {
             <AddToAlbumDialog image={image} onClose={() => setOpen(false)} />
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            {/* <FolderPlus className="mr-2 h-4 w-4" />
-            <span>Add to Album</span> */}
+          
             <Button className="cursor-pointer flex justify-start pl-4" asChild variant="ghost">
               <Link className="cursor-pointer"
                 href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}

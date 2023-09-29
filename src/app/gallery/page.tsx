@@ -1,4 +1,5 @@
 import SearchForm from "@/components/Shared/SearchForm";
+import ForcedRefresh from "@/components/Shared/forced-refresh";
 import GalleryGrid from "@/components/Shared/gallery-grid";
 import ImageGrid from "@/components/Shared/image-grid";
 import UploadButton from "@/components/Shared/upload-btn";
@@ -31,6 +32,7 @@ const GalleryPage = async ({
 
   return (
     <section>
+      <ForcedRefresh/>
       <div className="flex flex-col gap-8">
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold">Gallery</h1>
