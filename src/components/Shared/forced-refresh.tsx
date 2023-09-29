@@ -5,9 +5,7 @@ import { useEffect } from "react";
 
 const ForcedRefresh = () => {
   const router = useRouter();
-  useEffect(() => {
-    router.refresh;
-  }, []);
+  useEffect(() => {}, [router.refresh]);
   return <></>;
 };
 

@@ -109,6 +109,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="border-b">
           <div className="flex h-16 items-center px-4 container mx-auto">
+            <Link className="flex justify-center items-center" href={'/'}>
           <Image
               src="/album.png"
               width="50"
@@ -117,6 +118,7 @@ export default function RootLayout({
             />
             
             Photos App
+            </Link>
             <div className="ml-auto flex items-center space-x-4">
               <Avatar>
                 <AvatarImage

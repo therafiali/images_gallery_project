@@ -22,8 +22,8 @@ export default function EditPage({
     | "pixelate"
     | "bg-remove"
   >();
-  const [prompt, setPrompt] = useState('');
-  const [pendingPrompt, setPendingPrompt] = useState('')
+  const [prompt, setPrompt] = useState("");
+  const [pendingPrompt, setPendingPrompt] = useState("");
   return (
     <section>
       <div className="flex flex-col gap-8">
@@ -35,9 +35,12 @@ export default function EditPage({
             Clear All
           </Button>
           <div className="flex flex-col gap-4">
-            <Button onClick={() =>{ setTransformation("generative-fill")
-        setPrompt(pendingPrompt)
-        }}>
+            <Button
+              onClick={() => {
+                setTransformation("generative-fill");
+                setPrompt(pendingPrompt);
+              }}
+            >
               Apply Generative Fill
             </Button>
             <Label>Prompt</Label>
@@ -82,6 +85,7 @@ export default function EditPage({
               width="1200"
               height="1400"
               alt={"some images"}
+              //@ts-ignore
               blur="800"
             />
           )}
@@ -91,6 +95,7 @@ export default function EditPage({
               width="1200"
               height="1400"
               alt={"some images"}
+              //@ts-ignore
               grayscale
             />
           )}
@@ -100,6 +105,7 @@ export default function EditPage({
               width="1200"
               height="1400"
               alt={"some images"}
+              //@ts-ignore
               pixelate
             />
           )}
@@ -112,6 +118,12 @@ export default function EditPage({
               removeBackground
             />
           )}
+          <CldImage
+            width="600"
+            height="600"
+            src="<Cloudinary URL>"
+            alt="Description of my image"
+          />
         </div>
       </div>
     </section>
